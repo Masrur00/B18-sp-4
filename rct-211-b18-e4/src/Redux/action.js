@@ -15,7 +15,7 @@ export const getProducts = () => dispatch => {
 export const addProducts = (payload) => dispatch => {
     dispatch({ type: types.ADD_PRODUCT_REQUEST });
 
-    return axios.get('http://localhost:8080/products', payload)
+    return axios.post('http://localhost:8080/products', payload)
         .then((r) =>  dispatch({type: types.ADD_PRODUCT_SUCCESS, payload:r.data}))
         .catch(err => dispatch({type: types.ADD_PRODUCT_FAILURE,payload:err.message}));
 }
@@ -26,5 +26,13 @@ export const editProducts = (id,payload) => dispatch => {
     return axios.patch(`http://localhost:8080/products/${id}`, payload)
         .then((r) =>  dispatch({type: types.EDIT_PRODUCT_SUCCESS, payload:r.data}))
         .catch(err => dispatch({type: types.EDIT_PRODUCT_FAILURE,payload:err.message}));
+}
+
+export const deleteProduct = (id) => dispatch => {
+    dispatch({ type: types.DELETE_PRODUCT_REQUEST });
+
+    return axios.delete(`http://localhost:8080/products/${id}`)
+        .then((r) =>  dispatch({type: types.DELETE_PRODUCT_SUCCESS, payload:r}))
+        .catch(err => dispatch({type: types.DELETE_PRODUCT_FAILURE,payload:err}));
 }
 

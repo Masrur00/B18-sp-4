@@ -35,6 +35,7 @@ const AddProduct = () => {
   );
 
   const addHandler = () => {
+    console.log(productState);
     if (JSON.stringify(productState) !== JSON.stringify(initialState)) {
       dispatch(addProducts(productState)).then(() =>
         dispatch(getProducts()).then(() => navigate("/"))

@@ -1,13 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { deleteProduct, getProducts } from "../Redux/action";
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
 
   const deleteHandler = (id) => {
-     dispatch()
+     dispatch(deleteProduct(id)).then(() => dispatch(getProducts()))
   }
+
   return (
     <div
       data-cy={`product-card-${item.id}`}
