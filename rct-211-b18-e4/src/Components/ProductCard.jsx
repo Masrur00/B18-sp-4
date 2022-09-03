@@ -1,7 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const deleteHandler = (id) => {
+     dispatch()
+  }
   return (
     <div
       data-cy={`product-card-${item.id}`}
@@ -30,7 +36,7 @@ const ProductCard = ({ item }) => {
         {/* Add a onClick handler for delete functionality */}
         <button
           data-cy="delete-button"
-          // onClick={() => deleteHandler(item.id)}
+          onClick={() => deleteHandler(item.id)}
         >
           Delete Product
         </button>

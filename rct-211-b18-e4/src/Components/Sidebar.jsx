@@ -7,14 +7,15 @@ const Sidebar = () => {
   const [sortBy, setSortBy] = useState(initSort || "");
 
   const handleSort = (e) => {
-    if (sortBy !== e.target.value) {
-      setSortBy(e.target.value);
+    setSortBy(e.target.value);
+    if (e.target.value !== "") {
+      setSearchParams({ sort: e.target.value });
     }
   };
 
-  useEffect(() => {
-    setSearchParams({ sort: sortBy });
-  }, [sortBy]);
+  // useEffect(() => {
+
+  // }, [sortBy]);
 
   return (
     <div
@@ -25,7 +26,7 @@ const Sidebar = () => {
       }}
     >
       <h3>Sort By</h3>
-      <div>
+      <div style={{ textAlign: "left", fontSize: "20px" }}>
         <div>
           <input
             type="radio"
@@ -34,6 +35,7 @@ const Sidebar = () => {
             value="asc"
             defaultChecked={sortBy === "asc"}
             onChange={handleSort}
+            style={{ width: "20px" }}
           />
           <label>Ascending</label>
         </div>
@@ -45,6 +47,7 @@ const Sidebar = () => {
             value="desc"
             defaultChecked={sortBy === "desc"}
             onChange={handleSort}
+            style={{ width: "20px" }}
           />
           <label>Descending</label>
         </div>
