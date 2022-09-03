@@ -4,12 +4,19 @@ const AddProduct = () => {
   return (
     <div>
       <h3>Add Product</h3>
-      <div>
-        <div>
+      <div
+        style={{
+          textAlign: "center",
+          fontSize: "19px",
+          width: "fit-content",
+          margin: "auto",
+        }}
+      >
+        <div style={{ display: "flex", padding: "5px 0" }}>
           <label>Product title</label>
           <input data-cy="add-product-title" type="text" />
         </div>
-        <div>
+        <div style={{ display: "flex", padding: "5px 0" }}>
           <label>Product Category</label>
           <select data-cy="add-product-category">
             <option value="">Select Category</option>
@@ -18,7 +25,7 @@ const AddProduct = () => {
             <option value="Shoes">Shoes</option>
           </select>
         </div>
-        <div>
+        <div style={{ display: "flex", padding: "5px 0" }}>
           <label>Product Image</label>
           <input
             data-cy="add-product-image"
@@ -26,11 +33,11 @@ const AddProduct = () => {
             placeholder="Image URL"
           />
         </div>
-        <div>
+        <div style={{ display: "flex", padding: "5px 0" }}>
           <label>Product Price</label>
           <input data-cy="add-product-price" type="text" />
         </div>
-        <div>
+        <div >
           <button data-cy="add-product-button">Add</button>
         </div>
       </div>

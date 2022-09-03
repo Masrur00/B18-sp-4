@@ -1,5 +1,5 @@
 // NOTE: use this store variable to create a store.
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import { applyMiddleware, legacy_createStore } from "redux";
 import thunk from "redux-thunk";
 import { reducer } from "./reducer";
 

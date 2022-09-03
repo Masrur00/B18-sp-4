@@ -3,15 +3,20 @@ import * as types from './actionTypes';
 import axios from "axios"
 
 export const getProducts = () => dispatch => {
-    dispatch({type: types.GET_PRODUCTS_REQUEST })
+    dispatch({ type: types.GET_PRODUCTS_REQUEST })    
+
     return axios.get('http://localhost:8080/products')
         .then((r) =>  dispatch({type: types.GET_PRODUCTS_SUCCESS, payload:r.data }))
         .catch(err => dispatch({ type: types.GET_PRODUCTS_FAILURE,payload:err.message }));
 }
 
-// export const getProducts = () => dispatch => {
-//     dispatch({type: types.GET_PRODUCTS_REQUEST })
-//     return axios.get('http://localhost:8080/products')
-//         .then((r) =>  dispatch({type: types.GET_PRODUCTS_SUCCESS, payload:r.data }))
-//         .catch(err => dispatch({ type: types.GET_PRODUCTS_FAILURE,payload:err.message }));
-// }
+
+
+export const addProducts = (payload) => dispatch => {
+    dispatch({ type: types.ADD_PRODUCT_REQUEST });
+
+    return axios.get('http://localhost:8080/products', payload)
+        .then((r) =>  dispatch({type: types.ADD_PRODUCT_SUCCESS, payload:r.data }))
+        .catch(err => dispatch({ type: types.ADD_PRODUCT_FAILURE,payload:err.message }));
+}
+
